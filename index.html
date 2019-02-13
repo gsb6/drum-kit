@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Drum Kit</title>
+</head>
+<body>
+    <div class="keys">
+        <div data-key="65" class="key">
+            <k>A</k>
+            <span class="sound">clap</span>
+        </div>
+        <div data-key="83" class="key">
+            <k>S</k>
+            <span class="sound">hihat</span>
+        </div>
+        <div data-key="68" class="key">
+            <k>D</k>
+            <span class="sound">kick</span>
+        </div>
+        <div data-key="70" class="key">
+            <k>F</k>
+            <span class="sound">openhat</span>
+        </div>
+        <div data-key="71" class="key">
+            <k>G</k>
+            <span class="sound">boom</span>
+        </div>
+        <div data-key="72" class="key">
+            <k>H</k>
+            <span class="sound">ride</span>
+        </div>
+        <div data-key="74" class="key">
+            <k>J</k>
+            <span class="sound">snare</span>
+        </div>
+        <div data-key="75" class="key">
+            <k>K</k>
+            <span class="sound">tink</span>
+        </div>
+        <div data-key="76" class="key">
+            <k>L</k>
+            <span class="sound">tom</span>
+        </div>
+    </div>
+
+    <audio data-key="65" src="sounds/clap.wav"></audio>
+    <audio data-key="83" src="sounds/hihat.wav"></audio>
+    <audio data-key="68" src="sounds/kick.wav"></audio>
+    <audio data-key="70" src="sounds/openhat.wav"></audio>
+    <audio data-key="71" src="sounds/boom.wav"></audio>
+    <audio data-key="72" src="sounds/ride.wav"></audio>
+    <audio data-key="74" src="sounds/snare.wav"></audio>
+    <audio data-key="75" src="sounds/tink.wav"></audio>
+    <audio data-key="76" src="sounds/tom.wav"></audio>
+
+    <script>
+        window.addEventListener('keydown', e => {
+            const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`)
+            
+            if(audio) {
+                audio.currentTime = 0
+                audio.play()
+            } else {
+                return
+            }
+        })
+    </script>
+</body>
+</html>
